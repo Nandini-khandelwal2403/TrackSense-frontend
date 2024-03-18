@@ -1,0 +1,15 @@
+#sidePanel {
+    height: 100vh;
+    border-right: 1px solid;
+}
+
+#mainPanel {
+    height: 100vh;
+    background-color: rgb(65, 65, 165);
+}
+
+.container {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100vw !important;
+}
