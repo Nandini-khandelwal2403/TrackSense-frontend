@@ -1,0 +1,14 @@
+.date {
+    background-color: #ab3ee2;
+    margin-top: 2rem !important;
+    margin: auto;
+    width: 15rem;
+    height: 3rem;
+    border-radius: 5rem;
+    font-size: 1.5rem;
+}
+
+.date span {
+    margin: auto;
+    align-content: center !important;
+}
