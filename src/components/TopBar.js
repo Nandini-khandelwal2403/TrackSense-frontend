@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from '../logo.svg'
 import './TopBar.css'
+import ts_logo from './tracksense-logo.png'
 import {
     Navbar,
     NavbarBrand,
@@ -18,13 +19,13 @@ function TopBar() {
             <NavbarBrand href="/">
             <img
                 alt="logo"
-                src= {logo}
+                src= {ts_logo}
                 style={{
                     height: 40,
-                    width: 40,
+                    // width: 40,
                 }}
             />
-            TrackSense
+            {/* TrackSense */}
             </NavbarBrand>
             </Navbar>
         </div>
