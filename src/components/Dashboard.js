@@ -1,6 +1,7 @@
 import React from 'react'
 import { Col, Container, Row, CardGroup, Card, CardImg, CardBody } from 'reactstrap'
 import './Dashboard.css'
+import SidePanel from './SidePanel';
 import { CardTitle } from 'reactstrap';
 import { CardSubtitle } from 'reactstrap';
 import { CardText } from 'reactstrap';
@@ -14,7 +15,7 @@ function Dashboard() {
     <div>
         <Container fluid>
             <Row>
-                <Col id="sidePanel" className='bg-light' xs="3"></Col>
+                <SidePanel />
                 <MainPanel />
             </Row>
         </Container>

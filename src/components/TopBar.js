@@ -13,7 +13,7 @@ function TopBar() {
         <div>
             <Navbar id='topBar'
                 className="my-2"
-                color="dark"
+                color="#333"
                 dark
             >
             <NavbarBrand href="/">
