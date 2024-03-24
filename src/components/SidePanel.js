@@ -13,6 +13,10 @@ function getDate() {
 function SidePanel() {
     const [ showForm, setShowForm] = useState(false);
 
+    const toggle = () => {
+        setShowForm(!showForm);
+    };
+
     
   return (
     <Col id="sidePanel" xs="3">
@@ -21,14 +25,12 @@ function SidePanel() {
         </Card>
         <div className='addExpense'>
             <Button color="info" className='expenseForm' 
-                onClick={() => {
-                    setShowForm(true)
-                }}
+                onClick={toggle}
         >
                 Add Expense
             </Button>
         </div>
-        {showForm && <ShowForm closeModal={setShowForm}/>}
+        {showForm && <ShowForm modal={showForm} toggle={toggle}/>}
     </Col>
   )
 }

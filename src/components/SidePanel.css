@@ -13,12 +13,24 @@
     align-content: center !important;
 }
 
-.add-expense {
+.addExpense {
     position: relative;
+    top: 78vh;
     left: 0;
     bottom: 0;
-    margin-bottom: 2rem;
+    margin-bottom: 2rem !important;
     height: 3rem;
+    width: 100%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
+}
+
+.expenseForm {
     width: 12rem;
-    margin-left: 5.5rem;
+    font-size: 1.2rem !important;
+    background-color: #6f4982 !important;
+    border: none !important;
+    color: white !important;
 }

@@ -1,0 +1,19 @@
+.list-group {
+    background-color: #f8f9fa !important;
+}
+
+.list-group-item {
+    background-color: #f8f9fa !important;
+    border: 0 !important;
+    border-bottom: 1px solid #ddd !important;
+    border-radius: 0 !important;
+    padding: 10px !important;
+    margin: 0 !important;
+    font-size: 1rem !important;
+    color: #495057 !important;
+}
+
+.heading {
+    color: #000;
+    font-size: 1.1rem;
+}

@@ -1,160 +1,61 @@
 import React from 'react'
 import { Form, FormGroup, FormText, Button, Input, Label } from 'reactstrap'
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import './ShowForm.css'
 
-function ShowForm({closeModal}) {
+function ShowForm({modal, toggle}) {
+    const today = new Date();
+    const date = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
   return (
     <div>
-        <Form className='modal'>
-            <FormGroup>
-                <button onClick={() => closeModal(false)}>X</button>
-                <Label for="exampleEmail">
-                Item
-                </Label>
-                <Input
-                id="exampleEmail"
-                name="email"
-                placeholder="Item Name"
-                type="email"
-                />
-            </FormGroup>
-            <FormGroup>
-                <Label for="examplePassword">
-                Password
-                </Label>
-                <Input
-                id="examplePassword"
-                name="password"
-                placeholder="password placeholder"
-                type="password"
-                />
-            </FormGroup>
-            <FormGroup>
-                <Label for="exampleSelect">
-                Select
-                </Label>
-                <Input
-                id="exampleSelect"
-                name="select"
-                type="select"
-                >
-                <option>
-                    1
-                </option>
-                <option>
-                    2
-                </option>
-                <option>
-                    3
-                </option>
-                <option>
-                    4
-                </option>
-                <option>
-                    5
-                </option>
-                </Input>
-            </FormGroup>
-            <FormGroup>
-                <Label for="exampleSelectMulti">
-                Select Multiple
-                </Label>
-                <Input
-                id="exampleSelectMulti"
-                multiple
-                name="selectMulti"
-                type="select"
-                >
-                <option>
-                    1
-                </option>
-                <option>
-                    2
-                </option>
-                <option>
-                    3
-                </option>
-                <option>
-                    4
-                </option>
-                <option>
-                    5
-                </option>
-                </Input>
-            </FormGroup>
-            <FormGroup>
-                <Label for="exampleText">
-                Text Area
-                </Label>
-                <Input
-                id="exampleText"
-                name="text"
-                type="textarea"
-                />
-            </FormGroup>
-            <FormGroup>
-                <Label for="exampleFile">
-                File
-                </Label>
-                <Input
-                id="exampleFile"
-                name="file"
-                type="file"
-                />
-                <FormText>
-                This is some placeholder block-level help text for the above input. It‘s a bit lighter and easily wraps to a new line.
-                </FormText>
-            </FormGroup>
-            <FormGroup tag="fieldset">
-                <legend>
-                Radio Buttons
-                </legend>
-                <FormGroup check>
-                <Input
-                    name="radio1"
-                    type="radio"
-                />
-                {' '}
-                <Label check>
-                    Option one is this and that—be sure to include why it‘s great
-                </Label>
+        <Modal isOpen={modal} toggle={toggle}>
+            <ModalHeader toggle={toggle}>Add expense</ModalHeader>
+            <ModalBody >
+            {/* <Form>
+                <FormGroup>
+                    <Label for="item">
+                    Description
+                    </Label>
+                    <Input
+                    id="item"
+                    name="item"
+                    placeholder="eg. Groceries, Lunch, Cab"
+                    type='text'
+                    />
                 </FormGroup>
-                <FormGroup check>
-                <Input
-                    name="radio1"
-                    type="radio"
-                />
-                {' '}
-                <Label check>
-                    Option two can be something else and selecting it will deselect option one
-                </Label>
+                <FormGroup>
+                    <Label for="cost">
+                    Cost
+                    </Label>
+                    <Input
+                    id="cost"
+                    name="cost"
+                    placeholder="eg. 143.50"
+                    type="number"
+                    />
                 </FormGroup>
-                <FormGroup
-                check
-                disabled
-                >
-                <Input
-                    disabled
-                    name="radio1"
-                    type="radio"
-                />
-                {' '}
-                <Label check>
-                    Option three is disabled
-                </Label>
-                </FormGroup>
-            </FormGroup>
-            <FormGroup check>
-                <Input type="checkbox" />
-                {' '}
-                <Label check>
-                Check me out
-                </Label>
-            </FormGroup>
-            <Button>
-                Submit
-            </Button>
-        </Form>
+                
+            </Form> */}
+            
+                <div className='modalBody' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <input type="text" id='item' placeholder='Description (eg. lunch, cab, rent)' className='formInput' />
+                    <br />
+                    <input type="number" id='cost' placeholder='Cost (eg. 143.50)' className='formInput' />
+                    <br />
+                    
+
+                    <input type="date" name="date" id="date" defaultValue={date} />
+                </div>
+            
+            
+            </ModalBody>
+            <ModalFooter>
+                <Button className='submitButton' onClick={toggle}>
+                    Submit
+                </Button>{' '}
+            </ModalFooter>
+        </Modal>
+        
     </div>
   )
 }
