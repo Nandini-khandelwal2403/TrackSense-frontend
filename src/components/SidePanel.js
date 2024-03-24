@@ -27,8 +27,8 @@ function SidePanel() {
         >
                 Add Expense
             </Button>
-            {showForm && <ShowForm closeModal={setShowForm}/>}
         </div>
+        {showForm && <ShowForm closeModal={setShowForm}/>}
     </Col>
   )
 }

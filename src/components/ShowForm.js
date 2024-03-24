@@ -1,19 +1,20 @@
 import React from 'react'
 import { Form, FormGroup, FormText, Button, Input, Label } from 'reactstrap'
+import './ShowForm.css'
 
 function ShowForm({closeModal}) {
   return (
     <div>
-        <Form>
+        <Form className='modal'>
             <FormGroup>
                 <button onClick={() => closeModal(false)}>X</button>
                 <Label for="exampleEmail">
-                Email
+                Item
                 </Label>
                 <Input
                 id="exampleEmail"
                 name="email"
-                placeholder="with a placeholder"
+                placeholder="Item Name"
                 type="email"
                 />
             </FormGroup>
