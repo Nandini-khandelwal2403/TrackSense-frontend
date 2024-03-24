@@ -12,3 +12,13 @@
     margin: auto;
     align-content: center !important;
 }
+
+.add-expense {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    margin-bottom: 2rem;
+    height: 3rem;
+    width: 12rem;
+    margin-left: 5.5rem;
+}
