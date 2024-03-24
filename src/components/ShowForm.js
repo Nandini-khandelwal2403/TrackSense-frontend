@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, FormGroup, FormText, Button, Input, Label } from 'reactstrap'
+import { Button } from 'reactstrap'
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import './ShowForm.css'
 

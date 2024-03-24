@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from '../logo.svg'
 import './TopBar.css'
 import ts_logo from './tracksense-logo.png'
 import {
