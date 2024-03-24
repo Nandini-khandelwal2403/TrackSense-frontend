@@ -5,6 +5,7 @@ import { CardTitle } from "reactstrap";
 import { CardSubtitle } from "reactstrap";
 import { CardText } from "reactstrap";
 import { Button } from "reactstrap";
+import MainList from "./MainList";
 
 function MainPanel() {
     return (
@@ -38,6 +39,7 @@ function MainPanel() {
             </Card>
             </CardGroup>
         </Row>
+        <MainList />
         </Col>
     );
 }
