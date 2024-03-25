@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { Button } from 'reactstrap'
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
 import './ShowForm.css'
@@ -6,51 +6,52 @@ import './ShowForm.css'
 function ShowForm({modal, toggle}) {
     const today = new Date();
     const date = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+    const [selectedOption, setSelectedOption] = useState('');
+    function handleChange(event) {
+        setSelectedOption(event.target.value);
+    }
+
+    function handleModalSubmit(){
+        const desc = document.getElementById("item").value
+        const cost = document.getElementById("cost").value
+        const date = document.getElementById("date").value
+        const tag = selectedOption;
+        const obj = {'desc': desc, 'cost': cost, 'date' : Date.parse(date), tag}
+        console.log(obj)
+        toggle()
+    }
+    
   return (
     <div>
         <Modal isOpen={modal} toggle={toggle}>
             <ModalHeader toggle={toggle}>Add expense</ModalHeader>
             <ModalBody >
-            {/* <Form>
-                <FormGroup>
-                    <Label for="item">
-                    Description
-                    </Label>
-                    <Input
-                    id="item"
-                    name="item"
-                    placeholder="eg. Groceries, Lunch, Cab"
-                    type='text'
-                    />
-                </FormGroup>
-                <FormGroup>
-                    <Label for="cost">
-                    Cost
-                    </Label>
-                    <Input
-                    id="cost"
-                    name="cost"
-                    placeholder="eg. 143.50"
-                    type="number"
-                    />
-                </FormGroup>
-                
-            </Form> */}
-            
                 <div className='modalBody' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <input type="text" id='item' placeholder='Description (eg. lunch, cab, rent)' className='formInput' />
                     <br />
                     <input type="number" id='cost' placeholder='Cost (eg. 143.50)' className='formInput' />
                     <br />
-                    
-
                     <input type="date" name="date" id="date" defaultValue={date} />
+                    <div className='radioModal'>
+                        <span className='radioModal-tag'>Tags : </span>
+                        <label>
+                            <input type="radio" value="Red" checked={selectedOption === 'Red'} onChange={handleChange} />
+                            <span className='radioModal-tag'>Red</span>
+                        </label>
+                        <label>
+                            <input type="radio" value="Yellow" checked={selectedOption === 'Yellow'} onChange={handleChange} />
+                            <span className='radioModal-tag'>Yellow</span>
+                        </label>
+                        <label>
+                            <input type="radio" value="Green" checked={selectedOption === 'Green'} onChange={handleChange} />
+                            <span className='radioModal-tag'>Green</span>
+                        </label>
+                    </div>
                 </div>
-            
             
             </ModalBody>
             <ModalFooter>
-                <Button className='submitButton' onClick={toggle}>
+                <Button className='submitButton' onClick={handleModalSubmit}>
                     Submit
                 </Button>{' '}
             </ModalFooter>
