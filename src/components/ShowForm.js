@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { Button } from 'reactstrap'
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap'
+import axios from 'axios'
 import './ShowForm.css'
 
 function ShowForm({modal, toggle}) {
@@ -18,7 +19,27 @@ function ShowForm({modal, toggle}) {
         const tag = selectedOption;
         const obj = {'desc': desc, 'cost': cost, 'date' : Date.parse(date), tag}
         console.log(obj)
-        toggle()
+        // let axiosConfig = {
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         // "Access-Control-Allow-Origin": "",
+        //     }
+        //   };
+
+        // axios.post('http://localhost:8080/addexpense', data = {obj}, axiosConfig).then(
+        //     response => console.log(response.data)
+        // ).catch(err => console.log(err));
+
+        fetch('/addexpense', {
+            method: 'POST',
+            headers: {
+                'Accept': '/',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': "GET, POST, PUT, DELETE"
+            },
+            body: JSON.stringify({'desc': desc, 'cost': cost, 'date' : Date.parse(date), tag})
+        })
+        toggle();
     }
     
   return (
