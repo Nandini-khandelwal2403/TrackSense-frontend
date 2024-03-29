@@ -3,6 +3,15 @@ import { Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
 import './MainList.css';
 
 function MainList() {
+
+  const [expenses, setExpenses] = React.useState([]);
+
+  React.useEffect(() => {
+    fetch('http://localhost:8080/getexpenses')
+      .then(response => response.json())
+      .then(data => setExpenses(data));
+  }, []);
+
   return (
     <Row>
         <Row className="transaction-group-date">
@@ -26,86 +35,34 @@ function MainList() {
                     </Col>
                 </Row>
             </ListGroupItem>
-            <ListGroupItem
-                href="#"
-                tag="a"
-            >
-                <Row xs="4">
-                    <Col className="datablock ">
-                    Column
-                    </Col>
-                    <Col className="datablock ">
-                    Column
-                    </Col>
-                    <Col className="datablock ">
-                    Column
-                    </Col>
-                    <Col className="datablock ">
-                    Column
-                    </Col>
-                </Row>
-            </ListGroupItem>
-            <ListGroupItem
-                href="#"
-                tag="a"
-            >
-                <Row xs="4">
-                    <Col className="datablock ">
-                    Column
-                    </Col>
-                    <Col className="datablock ">
-                    Column
-                    </Col>
-                    <Col className="datablock ">
-                    Column
-                    </Col>
-                    <Col className="datablock ">
-                    Column
-                    </Col>
-                </Row>
-            </ListGroupItem>
-            <ListGroupItem
-                href="#"
-                tag="a"
-            >
-                <Row xs="4">
-                    <Col className="datablock ">
-                    Column
-                    </Col>
-                    <Col className="datablock ">
-                    Column
-                    </Col>
-                    <Col className="datablock ">
-                    Column
-                    </Col>
-                    <Col className="datablock ">
-                    Column
-                    </Col>
-                </Row>
-            </ListGroupItem>
-            <ListGroupItem
-                href="#"
-                tag="a"
-            >
-                <Row xs="4">
-                    <Col className="datablock ">
-                    Column
-                    </Col>
-                    <Col className="datablock ">
-                    Column
-                    </Col>
-                    <Col className="datablock ">
-                    Column
-                    </Col>
-                    <Col className="datablock ">
-                    Column
-                    </Col>
-                </Row>
-            </ListGroupItem>
+            {expenses.map((expense, index) => (
+              <ListGroupItem
+                  href="#"
+                  tag="a"
+                  key={index}
+              >
+                  <Row xs="4">
+                      <Col className="datablock ">
+                      {expense.slNo}
+                      </Col>
+                      <Col className="datablock ">
+                      {expense.description}
+                      </Col>
+                      <Col className="datablock ">
+                      {expense.cost}
+                      </Col>
+                      <Col className="datablock ">
+                      {expense.tags}
+                      </Col>
+                  </Row>
+              </ListGroupItem>
+            ))}
             </ListGroup>
         </Row>
     </Row>
-  );
+    );
+    
+
 }
 
 export default MainList;
