@@ -38,7 +38,13 @@ function ShowForm({modal, toggle}) {
                 'Access-Control-Allow-Origin': "GET, POST, PUT, DELETE"
             },
             body: JSON.stringify({'desc': desc, 'cost': cost, 'date' : Date.parse(date), tag})
-        })
+        }).then(response => {
+            // console.log(response);
+            return response.json();
+        }).then(data => {
+            console.log(data);
+            
+        });
         toggle();
     }
     

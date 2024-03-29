@@ -5,12 +5,27 @@ import './MainList.css';
 function MainList() {
 
   const [expenses, setExpenses] = React.useState([]);
+  const [slNo, setSlNo] = React.useState(1);
+  const [update, setUpdate] = React.useState(false);
+  
 
-  React.useEffect(() => {
-    fetch('http://localhost:8080/getexpenses')
-      .then(response => response.json())
-      .then(data => setExpenses(data));
-  }, []);
+React.useEffect(() => {
+    // const abortController = new AbortController();
+    // const signal = abortController.signal;
+
+    fetch('/getexpenses')
+        .then(response => {
+            console.log(response);
+            return response.json();
+        })
+        .then(data => {
+            console.log(data);
+            setExpenses(data);
+            // setUpdate(!update);
+        });
+
+    
+}, []);
 
   return (
     <Row>
@@ -43,16 +58,16 @@ function MainList() {
               >
                   <Row xs="4">
                       <Col className="datablock ">
-                      {expense.slNo}
+                      {new Date(expense.date).toLocaleDateString('en-US', { day: 'numeric', month: 'short' })}
                       </Col>
                       <Col className="datablock ">
-                      {expense.description}
+                      {expense.desc}
                       </Col>
                       <Col className="datablock ">
                       {expense.cost}
                       </Col>
                       <Col className="datablock ">
-                      {expense.tags}
+                      {expense.tag}
                       </Col>
                   </Row>
               </ListGroupItem>
