@@ -10,7 +10,7 @@ function getDate() {
     return formattedDate;
 }
 
-function SidePanel() {
+function SidePanel({setList}) {
     const [ showForm, setShowForm] = useState(false);
 
     const toggle = () => {
@@ -30,7 +30,7 @@ function SidePanel() {
                 Add Expense
             </Button>
         </div>
-        {showForm && <ShowForm modal={showForm} toggle={toggle}/>}
+        {showForm && <ShowForm modal={showForm} toggle={toggle} setList={setList}/>}
     </Col>
   )
 }

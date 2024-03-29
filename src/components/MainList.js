@@ -2,30 +2,30 @@ import React from 'react';
 import { Row, Col, ListGroup, ListGroupItem } from 'reactstrap';
 import './MainList.css';
 
-function MainList() {
+function MainList({expenses}) {
 
-  const [expenses, setExpenses] = React.useState([]);
-  const [slNo, setSlNo] = React.useState(1);
-  const [update, setUpdate] = React.useState(false);
+//   const [expenses, setExpenses] = React.useState([]);
+//   const [slNo, setSlNo] = React.useState(1);
+//   const [update, setUpdate] = React.useState(false);
   
 
-React.useEffect(() => {
-    // const abortController = new AbortController();
-    // const signal = abortController.signal;
+// React.useEffect(() => {
+//     // const abortController = new AbortController();
+//     // const signal = abortController.signal;
 
-    fetch('/getexpenses')
-        .then(response => {
-            console.log(response);
-            return response.json();
-        })
-        .then(data => {
-            console.log(data);
-            setExpenses(data);
-            // setUpdate(!update);
-        });
+//     fetch('/getexpenses')
+//         .then(response => {
+//             console.log(response);
+//             return response.json();
+//         })
+//         .then(data => {
+//             console.log(data);
+//             setExpenses(data);
+//             // setUpdate(!update);
+//         });
 
     
-}, []);
+// }, []);
 
   return (
     <Row>
@@ -50,7 +50,7 @@ React.useEffect(() => {
                     </Col>
                 </Row>
             </ListGroupItem>
-            {expenses.map((expense, index) => (
+            {expenses && expenses.map((expense, index) => (
               <ListGroupItem
                   href="#"
                   tag="a"
