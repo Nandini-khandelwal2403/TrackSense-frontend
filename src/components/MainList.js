@@ -4,7 +4,13 @@ import './MainList.css';
 
 function MainList({expenses}) {
 
-//   const [expenses, setExpenses] = React.useState([]);
+
+
+//   const [expenses, setExpenses] = React.useState(listData);
+
+//     React.useEffect(() => {
+//         setExpenses(listData);
+//     }, [listData]);
 //   const [slNo, setSlNo] = React.useState(1);
 //   const [update, setUpdate] = React.useState(false);
   
@@ -29,7 +35,7 @@ function MainList({expenses}) {
 
   return (
     <Row>
-        <Row className="transaction-group-date">
+        <Row className="transaction-group-date scrollable">
             <ListGroup flush className=''>
             <ListGroupItem
                 href="#"
