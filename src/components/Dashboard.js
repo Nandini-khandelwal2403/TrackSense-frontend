@@ -8,6 +8,7 @@ import MainPanel from './MainPanel';
 
 function Dashboard() {
     const [listData, setListData] = useState([]);
+	const [glanceData, setGlanceData] = useState([]);
     useEffect(() => {
         console.log("came to fetchlistdata")
         fetchListData()
@@ -21,7 +22,8 @@ function Dashboard() {
         })
         .then(data => {
             console.log(data);
-            setListData(data);
+            setListData(data.expenses);
+			setGlanceData(data.expenseSummary);
         });
     }
 
@@ -34,7 +36,7 @@ function Dashboard() {
         <Container fluid>
             <Row>
                 <SidePanel setList = {fetchListData}/>
-                <MainPanel expenses = {listData}/>
+                <MainPanel listData = {listData} glanceData = {glanceData}/>
             </Row>
         </Container>
     </div>

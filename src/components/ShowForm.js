@@ -51,18 +51,9 @@ function ShowForm({modal, toggle, setList}) {
                     <input type="date" name="date" id="date" defaultValue={date} />
                     <div className='radioModal'>
                         <span className='radioModal-tag'>Tags : </span>
-                        <label>
-                            <input type="radio" value="Red" checked={selectedOption === 'Red'} onChange={handleChange} />
-                            <span className='radioModal-tag'>Red</span>
-                        </label>
-                        <label>
-                            <input type="radio" value="Yellow" checked={selectedOption === 'Yellow'} onChange={handleChange} />
-                            <span className='radioModal-tag'>Yellow</span>
-                        </label>
-                        <label>
-                            <input type="radio" value="Green" checked={selectedOption === 'Green'} onChange={handleChange} />
-                            <span className='radioModal-tag'>Green</span>
-                        </label>
+                        <Button color="danger" size="sm" value="Red" onClick={handleChange} active={selectedOption === 'Red'} outline={selectedOption !== 'Red'} className='radioModal-tag'>Red</Button>
+                        <Button color="warning" size="sm" value="Yellow" onClick={handleChange} active={selectedOption === 'Yellow'} outline={selectedOption !== 'Yellow'} className='radioModal-tag'>Yellow</Button>
+                        <Button color="success" size="sm" value="Green" onClick={handleChange} active={selectedOption === 'Green'} outline={selectedOption !== 'Green'} className='radioModal-tag'>Green</Button>
                     </div>
                 </div>
             

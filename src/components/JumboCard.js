@@ -1,7 +1,11 @@
 import React from 'react'
 import { Row, CardGroup, Card, CardBody, CardTitle } from 'reactstrap'
 
-function JumboCard() {
+function JumboCard({glanceData}) {
+    const [glanceObj, setGlanceObj] = React.useState(glanceData);
+    React.useEffect(() => {
+        setGlanceObj(glanceData);
+    });
   return (
     <Row>
         <CardGroup className="jumbo-cards">
@@ -9,7 +13,7 @@ function JumboCard() {
             <CardBody>
             <CardTitle tag="h4">Today's Expenses</CardTitle>
             <CardTitle tag="h1" className="card-expense">
-                ₹1,380
+                ₹{glanceObj.daily}
             </CardTitle>
             </CardBody>
         </Card>
@@ -17,7 +21,7 @@ function JumboCard() {
             <CardBody>
             <CardTitle tag="h4">Weekly Expenses</CardTitle>
             <CardTitle tag="h1" className="card-expense">
-                ₹14,350
+                ₹{glanceObj.weekly}
             </CardTitle>
             </CardBody>
         </Card>
@@ -25,7 +29,7 @@ function JumboCard() {
             <CardBody>
             <CardTitle tag="h4">Monthly Expenses</CardTitle>
             <CardTitle tag="h1" className="card-expense">
-                ₹54,000
+                ₹{glanceObj.monthly}
             </CardTitle>
             </CardBody>
         </Card>

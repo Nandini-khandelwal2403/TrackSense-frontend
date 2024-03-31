@@ -4,13 +4,13 @@ import "./MainPanel.css";
 import MainList from "./mainlist";
 import JumboCard from "./JumboCard";
 
-function MainPanel({expenses}) {
+function MainPanel({listData, glanceData}) {
     return (
         <Col id="mainPanel" className="bg-light" xs="9">
         <Row className="jumbo-title">Your Expenses</Row>
-        <JumboCard />
+        <JumboCard glanceData = {glanceData}/>
         <Row className="transaction-list-title jumbo-title">Transactions</Row>
-        <MainList expenses={expenses}/>
+        <MainList listData={listData}/>
         </Col>
     );
 }

@@ -19,6 +19,11 @@
 }
 
 .scrollable {
-    height: 50vh;
+    height: 40vh;
     overflow-y: auto;
 }
+
+
+/* .transaction-group-date {
+    width: 85% !important;
+} */
